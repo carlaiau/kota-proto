@@ -11,8 +11,8 @@ const initalProposals = [
             next_of_kin: 'molly'
         },
         finance: {
-            bank_balance: 100,
-            credit_cards: 18
+            bank_balance: '100',
+            credit_cards: '18'
         },
 
     },
@@ -28,8 +28,8 @@ const initalProposals = [
             next_of_kin: 'Mrs Federer'
         },
         finance: {
-            bank_balance: 99999,
-            credit_cards: 0
+            bank_balance: '99999',
+            credit_cards: '0'
         },
     },
     {
@@ -44,8 +44,8 @@ const initalProposals = [
             next_of_kin: 'That dog'
         },
         finance: {
-            bank_balance: 5000,
-            credit_cards: 2
+            bank_balance: '5000',
+            credit_cards: '2'
         },
     },
     {
@@ -60,8 +60,8 @@ const initalProposals = [
             next_of_kin: 'Mr Jordan'
         },
         finance: {
-            bank_balance: 700000,
-            credit_cards: 5
+            bank_balance: '700000',
+            credit_cards: '5'
         },
     }
 ]
@@ -70,18 +70,18 @@ const initalProposals = [
 const proposals = (state = initalProposals, action) => {
     switch (action.type) {
 
-        case 'EDIT_Proposal':
+        case 'EDIT_PROPOSAL':
             console.log("Action is reaching reducer", action)
-            return state.map(proposals =>
-                proposals.id === action.id
+            return state.map(proposal =>
+                proposal.id === action.id
                     ?
                     {
-                        ...proposals,
+                        ...proposal,
                         // Overwrites the specific key value pair that we're updating
                         // Hard code this to a value to ensure that your frontend panel is not just showing the local state    
                         [action.key]: action.value
                     }
-                    : todo)
+                    : proposal)
         default:
             return state
     }
